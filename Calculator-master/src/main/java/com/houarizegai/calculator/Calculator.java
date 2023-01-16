@@ -10,7 +10,8 @@ import java.awt.Color;
 import javax.swing.*;
 import java.lang.Math;
 
-private static final String formula1 = "([-]?\\d+[.]\\d*)|(\\d+)";
+private static final String fontStyle = "Comic Sans MS";
+
 public class Calculator {
 
     private static final int WINDOW_WIDTH = 410;
@@ -83,7 +84,7 @@ public class Calculator {
         inText.setBounds(x[0], y[0], 350, 70);
         inText.setEditable(false);
         inText.setBackground(Color.WHITE);
-        inText.setFont(new Font("Comic Sans MS", Font.PLAIN, 33));
+        inText.setFont(new Font(fontStyle, Font.PLAIN, 33));
         window.add(inText);
 
         btnC = initBtn("C", x[0], y[1], event -> {
@@ -109,7 +110,7 @@ public class Calculator {
 
         btnMod = initBtn("%", x[2], y[1], event -> {
             repaintFont();
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -125,7 +126,7 @@ public class Calculator {
 
         btnDiv = initBtn("/", x[3], y[1], event -> {
             repaintFont();
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -188,7 +189,7 @@ public class Calculator {
 
         btnMul = initBtn("*", x[3], y[2], event -> {
             repaintFont();
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -251,7 +252,7 @@ public class Calculator {
 
         btnSub = initBtn("-", x[3], y[3], event -> {
             repaintFont();
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -315,7 +316,7 @@ public class Calculator {
 
         btnAdd = initBtn("+", x[3], y[4], event -> {
             repaintFont();
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -360,7 +361,7 @@ public class Calculator {
         });
 
         btnEqual = initBtn("=", x[2], y[5], event -> {
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -375,7 +376,7 @@ public class Calculator {
         btnEqual.setSize(2 * BUTTON_WIDTH + 10, BUTTON_HEIGHT);
 
         btnRoot = initBtn("√", x[4], y[1], event -> {
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = Math.sqrt(Double.parseDouble(inText.getText()));
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -391,7 +392,7 @@ public class Calculator {
 
         btnPower = initBtn("pow", x[4], y[2], event -> {
             repaintFont();
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -406,11 +407,11 @@ public class Calculator {
                     opt = '^';
                 }
         });
-        btnPower.setFont(new Font("Comic Sans MS", Font.PLAIN, 24));
+        btnPower.setFont(new Font(fontStyle, Font.PLAIN, 24));
         btnPower.setVisible(false);
 
         btnLog = initBtn("ln", x[4], y[3], event -> {
-            if (Pattern.matches(formula1, inText.getText()))
+            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
                 if (go) {
                     val = Math.log(Double.parseDouble(inText.getText()));
                     if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
@@ -444,7 +445,7 @@ public class Calculator {
     private JButton initBtn(String label, int x, int y, ActionListener event) {
         JButton btn = new JButton(label);
         btn.setBounds(x, y, BUTTON_WIDTH, BUTTON_HEIGHT);
-        btn.setFont(new Font("Comic Sans MS", Font.PLAIN, 28));
+        btn.setFont(new Font(fontStyle, Font.PLAIN, 28));
         btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn.addActionListener(event);
         btn.setFocusable(false);
@@ -619,7 +620,7 @@ public class Calculator {
                 btnEqual.setBackground(primaryDarkColor);
         }
     };
-
+    
     public static void main(String[] args) {
         new Calculator();
     }
