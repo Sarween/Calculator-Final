@@ -12,6 +12,8 @@ import java.lang.Math;
 
 private static final String fontStyle = "Comic Sans MS";
 private static final String formula1 = "([-]?\\d+[.]\\d*)|(\\d+)";
+private static final String formula1 = "[-]?[\\d]+[.][0]*";
+
 public class Calculator {
 
     private static final int WINDOW_WIDTH = 410;
@@ -113,7 +115,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -129,7 +131,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -192,7 +194,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -255,7 +257,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -319,7 +321,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -364,7 +366,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -379,7 +381,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = Math.sqrt(Double.parseDouble(inText.getText()));
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -395,7 +397,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
@@ -414,7 +416,7 @@ public class Calculator {
             if (Pattern.matches(formula1, inText.getText()))
                 if (go) {
                     val = Math.log(Double.parseDouble(inText.getText()));
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
+                    if (Pattern.matches(formula2, String.valueOf(val))) {
                         inText.setText(String.valueOf((int) val));
                     } else {
                         inText.setText(String.valueOf(val));
